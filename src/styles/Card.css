@@ -9,8 +9,8 @@
     margin-left: 200px;
 }
 .Fitness-Card {
-    max-height: 140px;
-    max-width: 520px;
+    /* max-height: 140px; */
+    max-width: 650px;
 }
 .Fitness-Card-Info {
     padding-left: 0;

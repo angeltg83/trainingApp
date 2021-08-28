@@ -16,7 +16,7 @@ class Exercises extends React.Component {
   }
   fechExercises = async () => {
     try {
-      let res = await fetch("http://localhost:7000/excersices");
+      let res = await fetch("http://localhost:7000/get-product");
       let { data } = await res.json();
       console.log("data UU", data);
       this.setState({

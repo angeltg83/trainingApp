@@ -7,11 +7,12 @@ const ExerciseList = ({ exercise }) => (
       return (
         <Card
           key={e._id}
-          title={e.title}
-          description={e.description}
+          nombre={e.nombre}
+          precio={e.precio}
           img={e.img}
-          leftColor={e.leftColor}
-          rightColor={e.rightColor}
+          descripcion={e.descripcion}
+          // leftColor={e.leftColor}
+          // rightColor={e.rightColor}
         />
       );
     })}
