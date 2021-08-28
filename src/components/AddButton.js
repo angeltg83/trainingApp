@@ -1,10 +1,10 @@
 import React from "react";
-import "../styles/AddButton.css";
-import buttomImg from "../images/add.png";
 import { Link } from "react-router-dom";
 
+import buttomImg from "../images/add.png";
+import "../styles/AddButton.css";
 const AddButton = () => (
-  <Link to="/exercise/new">
+  <Link to="/product/new">
     <img src={buttomImg} className="Fitness-Add" />
   </Link>
 );

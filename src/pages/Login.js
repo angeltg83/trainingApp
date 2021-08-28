@@ -1,15 +1,12 @@
 import React from "react";
-import ExerciseForm from "../components/ExerciseForm";
+import LoginForm from "../components/LoginForm";
 import Card from "../components/Card";
 
-class ExerciseNew extends React.Component {
+class Login extends React.Component {
   state = {
     form: {
-      title: "",
-      description: "",
-      img: "",
-      rightColor: "",
-      leftColor: "",
+      username: "",
+      contrasena: "",
     },
   };
 
@@ -29,7 +26,7 @@ class ExerciseNew extends React.Component {
       this.setState({
         loading: true,
       });
-      let config = {
+      const config = {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -38,13 +35,18 @@ class ExerciseNew extends React.Component {
         body: JSON.stringify(this.state.form),
       };
 
-      let res = await fetch("http://localhost:7000/excersiceNew", config);
+      let res = await fetch("http://localhost:7000/auth", config);
       let json = await res.json();
-      //   console.log("res ", json);
+      console.log("res ", json);
+
+      localStorage.setItem("token", json.token);
+      localStorage.setItem("user", json.user);
+
       this.setState({
         loading: false,
       });
-      this.props.history.push('/exercises');
+
+      this.props.history.push("/exercises");
     } catch (err) {
       console.log(err);
       this.setState({
@@ -69,7 +71,7 @@ class ExerciseNew extends React.Component {
           </div>
 
           <div className="col-sm">
-            <ExerciseForm
+            <LoginForm
               onSubmit={this.handleSubmit}
               onChange={this.handleChange}
               form={this.state.form}
@@ -80,4 +82,4 @@ class ExerciseNew extends React.Component {
     );
   }
 }
-export default ExerciseNew;
+export default Login;

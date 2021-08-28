@@ -4,22 +4,32 @@ import ExerciseList from "../components/ExerciseList";
 import Welcome from "../components/Welcome";
 import Loading from "../components/Loading";
 
-class Exercises extends React.Component {
+class Home extends React.Component {
   state = {
     data: [],
     loading: true,
     err: null,
+    token: null,
+    user: null,
   };
-
   async componentDidMount() {
-    await this.fechExercises();
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    if (token) {
+      await this.fechExercises(token, user);
+    } else {
+      this.props.history.push("/login");
+    }
   }
-  fechExercises = async () => {
+  fechExercises = async (token, user) => {
     try {
       let res = await fetch("http://localhost:7000/get-product");
       let { data } = await res.json();
-      console.log("data UU", data);
+      user = JSON.parse(user)
+      console.log(user)
       this.setState({
+        token,
+        user,
         data,
         loading: false,
       });
@@ -37,7 +47,7 @@ class Exercises extends React.Component {
     }
     return (
       <React.Fragment>
-        <Welcome username="Angel" />
+        <Welcome username={this.state.user.nombres} />
         <ExerciseList exercise={this.state.data} />
         <AddButton />
       </React.Fragment>
@@ -45,4 +55,4 @@ class Exercises extends React.Component {
   }
 }
 
-export default Exercises;
+export default Home;

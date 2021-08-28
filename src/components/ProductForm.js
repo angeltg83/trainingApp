@@ -1,6 +1,6 @@
 import React from "react";
 
-class ExerciseForm extends React.Component {
+class ProductForm extends React.Component {
   //   handleClick = () => {
   //     console.log("click!!");
   //   };
@@ -14,21 +14,20 @@ class ExerciseForm extends React.Component {
   //     });
   //   };
 
-
   render() {
     const { onChange, onSubmit, form } = this.props;
     return (
       <div className="container">
-        <h3>New exercise</h3>
+        <h3>New product</h3>
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
               type="text"
               className="form-control"
-              placeholder="title"
-              name="title"
+              placeholder="nombre"
+              name="nombre"
               onChange={onChange}
-              value={form.title}
+              value={form.nombre}
             />
           </div>
 
@@ -36,12 +35,35 @@ class ExerciseForm extends React.Component {
             <input
               type="text"
               className="form-control"
-              placeholder="description"
-              name="description"
+              placeholder="precio"
+              name="precio"
               onChange={onChange}
-              value={form.description}
+              value={form.precio}
             />
           </div>
+
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="lote"
+              name="lote"
+              onChange={onChange}
+              value={form.lote}
+            />
+          </div>
+
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="descripcion"
+              name="descripcion"
+              onChange={onChange}
+              value={form.descripcion}
+            />
+          </div>
+
 
           <div className="form-group">
             <input
@@ -59,24 +81,26 @@ class ExerciseForm extends React.Component {
               <input
                 type="text"
                 className="form-control"
-                placeholder="leftColor"
-                name="leftColor"
+                placeholder="existencias"
+                name="existencias"
                 onChange={onChange}
-                value={form.leftColor}
+                value={form.existencias}
               />
             </div>
-
             <div className="col">
               <input
                 type="text"
                 className="form-control"
-                placeholder="rightColor"
-                name="rightColor"
+                placeholder="tipo"
+                name="tipo"
                 onChange={onChange}
-                value={form.rightColor}
+                value={form.tipo}
               />
             </div>
           </div>
+
+         
+
           <br></br>
           <button type="submit" className="btn btn-primary">
             Submit
@@ -86,4 +110,4 @@ class ExerciseForm extends React.Component {
     );
   }
 }
-export default ExerciseForm;
+export default ProductForm;
