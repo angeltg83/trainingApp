@@ -1,0 +1,11 @@
+.btn_logout {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    position:absolute;
+    right:10px;
+    top:58px;
+    height: 60px;
+}
+.btn_logout:hover{
+    cursor: pointer;
+}

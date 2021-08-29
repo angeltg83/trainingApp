@@ -37,16 +37,18 @@ class Login extends React.Component {
 
       let res = await fetch("http://localhost:7000/auth", config);
       let json = await res.json();
-      console.log("res ", json);
+      console.log("res  ", json.user);
 
+      const {nombres} = json.user
       localStorage.setItem("token", json.token);
-      localStorage.setItem("user", json.user);
+      localStorage.setItem("user", nombres);
 
+      //console.log(JSON.parse(localStorage.getItem("user")));
       this.setState({
         loading: false,
       });
 
-      this.props.history.push("/exercises");
+      this.props.history.push("/home");
     } catch (err) {
       console.log(err);
       this.setState({
