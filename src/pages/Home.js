@@ -1,6 +1,6 @@
 import React from "react";
 import AddButton from "../components/AddButton";
-import ExerciseList from "../components/ExerciseList";
+import ProductList from "../components/ProductList";
 import Welcome from "../components/Welcome";
 import Loading from "../components/Loading";
 
@@ -48,8 +48,8 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <Welcome username={this.state.user.nombres} />
-        <ExerciseList exercise={this.state.data} />
         <AddButton />
+        <ProductList exercise={this.state.data} />
       </React.Fragment>
     );
   }

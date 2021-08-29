@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
 
-const ExerciseList = ({ exercise }) => (
+const ProductList = ({ exercise }) => (
   <div>
     {exercise.map((e) => {
       return (
@@ -19,4 +19,4 @@ const ExerciseList = ({ exercise }) => (
   </div>
 );
 
-export default ExerciseList;
+export default ProductList;

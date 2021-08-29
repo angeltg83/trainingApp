@@ -31,17 +31,18 @@ class ProductNew extends React.Component {
       this.setState({
         loading: true,
       });
+      console.log("tok ", localStorage.getItem("token"));
       const config = {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-type": "application/json",
+          "Authorization": localStorage.getItem("token"),
         },
         body: JSON.stringify(this.state.form),
       };
 
-      let res = await fetch("http://localhost:7000/new-product", config);
-      let json = await res.json();
+      await fetch("http://localhost:7000/new-product", config);
       //   console.log("res ", json);
       this.setState({
         loading: false,
